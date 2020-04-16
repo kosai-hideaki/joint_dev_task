@@ -56,7 +56,7 @@ def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-array.map(&:to_i)
+array.map!(&:to_i)
   # 以下は変更しないで下さい
   p array
 end
@@ -65,9 +65,9 @@ def q8
   programming_languages = %w(ruby php python javascript)
 
   # 以下に回答を記載
-programming_languages.map(&:capitalize)
 upper_case_programming_languages = programming_languages
-upper_case_programming_languages.upcase!
+programming_languages= programming_languages.map(&:capitalize)
+upper_case_programming_languages= upper_case_programming_languages.map(&:upcase)
   # 以下は変更しないで下さい
   p programming_languages
   p upper_case_programming_languages
@@ -77,14 +77,20 @@ def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-
+  cnt = 1
+  names.each{|item|
+  puts "会員No.#{cnt} "+item.to_s+"さん"}
+  cnt += 1
 end
 
 def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
-
+  #if foods.include?("うに")
+  #p "好物です"
+  #else
+  #p "まぁまぁ好きです"
 end
 
 def q11
