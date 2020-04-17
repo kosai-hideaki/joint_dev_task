@@ -85,18 +85,25 @@ end
 
 def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
-
+  
   # 以下に回答を記載
   #if foods.include?("うに")
-  #p "好物です"
+  #  puts  "好物です"
   #else
-  #p "まぁまぁ好きです"
+  #  puts  "まぁまぁ好きです"
 end
 
 def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
+  newsports =sports.flatten
+  newsports =newsports.uniq
+  puts "ユーザーの趣味一覧"
+  cnt = 1
+  newsports.each{|item|
+  puts "No#{cnt} "+item.to_s}
+  cnt += 1
 
 end
 
