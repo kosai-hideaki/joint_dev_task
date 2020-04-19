@@ -87,10 +87,13 @@ def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
   
   # 以下に回答を記載
-  #if foods.include?("うに")
-  #  puts  "好物です"
-  #else
-  #  puts  "まぁまぁ好きです"
+  foods.each {|food|
+  if food.include?("うに")
+    puts  "好物です"
+else
+  puts  "まぁまぁ好きです"
+end
+ }
 end
 
 def q11
@@ -100,17 +103,16 @@ def q11
   newsports =sports.flatten
   newsports =newsports.uniq
   puts "ユーザーの趣味一覧"
-  cnt = 1
-  newsports.each{|item|
-  puts "No#{cnt} "+item.to_s}
-  cnt += 1
-
+  newsports.each_with_index{|item,i|
+  puts "No#{i+1} "+item.to_s}
 end
 
 def q12
   data = { user: { name: "satou", age: 33 } }
 
   # 以下に回答を記載
+
+  puts data[:user][:name]
 
 end
 
@@ -119,14 +121,16 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
-
+  user_data = user_data.merge(update_data)
+  puts user_data
 end
 
 def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
-
+  key_data = data.keys
+  p key_data
 end
 
 def q15
@@ -134,7 +138,7 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
-
+#if 
 end
 
 def q16
@@ -147,6 +151,8 @@ def q16
 
   # 以下に回答を記載
 
+
+  #「私の名前は〜です。年齢は〜歳です。」
 end
 
 class UserQ17
