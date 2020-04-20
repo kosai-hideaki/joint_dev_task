@@ -66,7 +66,7 @@ def q8
 
   # 以下に回答を記載
 upper_case_programming_languages = programming_languages
-programming_languages= programming_languages.map(&:capitalize)
+programming_languages= programming_languages.map(&:capitalize!)
 upper_case_programming_languages= upper_case_programming_languages.map(&:upcase)
   # 以下は変更しないで下さい
   p programming_languages
@@ -77,10 +77,8 @@ def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  cnt = 1
-  names.each{|item|
-  puts "会員No.#{cnt} "+item.to_s+"さん"}
-  cnt += 1
+  names.each_with_index(){|item,i|
+  puts "会員No.#{i+1} "+item.to_s+"さん"}
 end
 
 def q10
@@ -88,22 +86,20 @@ def q10
   
   # 以下に回答を記載
   foods.each {|food|
-  if food.include?("うに")
-    puts  "好物です"
-else
-  puts  "まぁまぁ好きです"
-end
- }
-end
+    if food.include?("うに")
+      puts  "好物です"
+    else
+      puts  "まぁまぁ好きです"
+    end
+  }
+  end
 
 def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
-  newsports =sports.flatten
-  newsports =newsports.uniq
   puts "ユーザーの趣味一覧"
-  newsports.each_with_index{|item,i|
+  sports.flatten!.uniq.each_with_index{|item,i|
   puts "No#{i+1} "+item.to_s}
 end
 
@@ -121,7 +117,7 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
-  user_data = user_data.merge(update_data)
+  user_data.merge!(update_data)
   puts user_data
 end
 
@@ -129,8 +125,9 @@ def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
-  key_data = data.keys
-  p key_data
+  keys = data.keys
+  puts keys
+  
 end
 
 def q15
@@ -138,7 +135,8 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
-#if 
+  puts data1.key?(:age)?"OK":"NG"
+  puts data2.key?(:age)?"OK":"NG"
 end
 
 def q16
