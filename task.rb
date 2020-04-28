@@ -77,21 +77,15 @@ def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  names.each_with_index(){|item,i|
-  puts "会員No.#{i+1} "+item.to_s+"さん"}
+  names.each.with_index(1) do |name,i|
+    puts "会員No.#{i} #{name}さん"
+  end
 end
-
 def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
   
   # 以下に回答を記載
-  foods.each {|food|
-    if food.include?("うに")
-      puts  "好物です"
-    else
-      puts  "まぁまぁ好きです"
-    end
-  }
+  puts foods.include?("うに")? "好物です": "まぁまぁ好きです"
   end
 
 def q11
@@ -135,8 +129,9 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
-  puts data1.key?(:age)?"OK":"NG"
-  puts data2.key?(:age)?"OK":"NG"
+  puts data1.has_key?(:age)?"OK":"NG";
+  puts data2.has_key?(:age)?"OK":"NG";
+
 end
 
 def q16
@@ -148,10 +143,7 @@ def q16
   ]
 
   # 以下に回答を記載
-
-
-  #「私の名前は〜です。年齢は〜歳です。」
-end
+  
 
 class UserQ17
   # 以下に回答を記載
